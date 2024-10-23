@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Cinema Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Cinema</div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="screen welcome-block">
+        <div class="welcome-content">
+            <h1>Welcome to Cinema Ticket Booking</h1>
+            <p>Book tickets for the latest movies in your area.</p>
+            <button class="cta"><a href="movies.html">Explore Now</a></button>
+        </div>
+    </section>
+
+    <section id="slideshow">
+        <h2 class="section-title">Featured Movies</h2>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="movie1.jpg" alt="John Wick" class="slideshow-image">
+                <div class="text">John Wick</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="movie2.jpg" alt="The Secret Life Of Walter Mitty" class="slideshow-image">
+                <div class="text">The Secret Life Of Walter Mitty</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="movie3.jpg" alt="Tetris" class="slideshow-image">
+                <div class="text">Tetris</div>
+            </div>
+        </div>
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
+    </section>
+
+    <section id="news-feed">
+        <h2 class="section-title">Movie News</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <img src="news1.jpg" alt="News 1">
+                <p>New movie release this weekend!</p>
+            </div>
+            <div class="news-item">
+                <img src="news2.jpg" alt="News 2">
+                <p>Award-winning films now streaming.</p>
+            </div>
+            <div class="news-item">
+                <img src="news3.jpg" alt="News 3">
+                <p>Top 10 movies you shouldn't miss.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Cinema. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+
+            setTimeout(showSlides, 3000); 
+        }
+    </script>
+</body>
+</html>

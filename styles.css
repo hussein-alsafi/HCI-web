@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #FF6347;
+    --secondary-color: #2E2E2E;
+    --text-color: #FFF;
+    --bg-color: #F4F4F4;
+    --header-bg: #8B0000; 
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--secondary-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-header {
+    background-color: var(--header-bg); 
+    padding: 0.75rem; 
+    color: #FFF; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-right: 1.5rem;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    padding: 0.5rem 1rem;
+    color: #FFF;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cta-header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-header:hover {
+    background-color: #FF4500;
+}
+
+.welcome-block {
+    background-image: url(https://img.freepik.com/premium-photo/theater-scene-curtain-photo_728472-2217.jpg); 
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 2rem;
+    color: #FFF;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.welcome-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.welcome-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+}
+
+.cta a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--header-bg);
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1.5rem; 
+}
+
+#slideshow {
+    text-align: center;
+    padding: 2rem;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slideshow-image {
+    width: 100%;
+    height: auto;
+}
+
+.text {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#news-feed {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.news-container {
+    display: flex;
+    overflow-x: scroll;
+    padding: 1rem 0;
+    gap: 1.5rem;
+}
+
+.news-item {
+    min-width: 300px;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    color: var(--text-color);
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.news-item:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: auto;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.movie-card {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.movie-card img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.movie-button {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    color: #FFF;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.movie-button:hover {
+    background-color: #FF4500;
+}
+
+.booking-form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.booking-form label {
+    margin-bottom: 0.5rem;
+}
+
+.booking-form input,
+.booking-form select {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+.booking-form button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+    background-color: #FF4500;
+}
+
+@media (max-width: 768px) {
+    .about-us-container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-right: 0;
+    }
+
+    .nav-links li {
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header .container {
+        flex-direction: column;
+    }
+
+    .welcome-block {
+        padding: 3rem 1.5rem;
+        height: auto;
+    }
+
+    .section-title {
+        padding: 0 1rem;
+    }
+
+    .news-item {
+        min-width: 250px;
+    }
+}

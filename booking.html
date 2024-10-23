@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | Cinema Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Cinema</div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="booking" class="screen">
+        <h2 class="section-title">Book Your Ticket</h2>
+        <form class="booking-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your Name">
+
+            <label for="movie">Choose a Movie:</label>
+            <select id="movie">
+                <option>John Wick</option>
+                <option>The Secret Life Of Walter Mitty</option>
+                <option>Tetris</option>
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date">
+
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Cinema. All rights reserved.</p>
+    </footer>
+</body>
+</html>
