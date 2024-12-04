@@ -1,8 +1,6 @@
-// Replace this with your actual TMDB API key
 const apiKey = '4d82c4f1246aa4866c28aebe28486228';
 const apiUrl = 'https://api.themoviedb.org/3/movie/now_playing';
 
-// Function to fetch data (GET request)
 async function fetchMovies() {
     try {
         const response = await fetch(`${apiUrl}?api_key=${apiKey}`);
@@ -13,10 +11,9 @@ async function fetchMovies() {
     }
 }
 
-// Function to display movie data dynamically
 function displayMovies(movies) {
     const movieGrid = document.querySelector('.movie-grid');
-    movieGrid.innerHTML = ''; // Clear existing content
+    movieGrid.innerHTML = ''; 
 
     movies.forEach(movie => {
         const movieCard = document.createElement('div');
@@ -42,7 +39,6 @@ function displayMovies(movies) {
     });
 }
 
-// Function to fetch movie details (GET request)
 async function showMovieDetails(movieId) {
     try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`);
@@ -53,7 +49,6 @@ async function showMovieDetails(movieId) {
     }
 }
 
-// Function to send a review (POST request)
 async function submitUserReview(movieId, reviewContent) {
     try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`, {
@@ -74,7 +69,6 @@ async function submitUserReview(movieId, reviewContent) {
     }
 }
 
-// Function to handle form submission
 async function handleReviewSubmission(event) {
     event.preventDefault();
     const movieId = document.getElementById('movieId').value;
@@ -86,7 +80,6 @@ async function handleReviewSubmission(event) {
     }
 }
 
-// Add event listener for review form
 if (document.getElementById('reviewForm')) {
     document.getElementById('reviewForm').addEventListener('submit', handleReviewSubmission);
 }
