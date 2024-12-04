@@ -53,21 +53,42 @@ async function showMovieDetails(movieId) {
     }
 }
 
-// Example function to send data (POST request) - Not typically used for movie fetching, but could be for user actions
-async function submitUserReview(movieId, reviewData) {
+// Function to send a review (POST request)
+async function submitUserReview(movieId, reviewContent) {
     try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(reviewData),
+            body: JSON.stringify({
+                author: 'User',
+                content: reviewContent,
+            }),
         });
         const result = await response.json();
+        alert('Review submitted successfully!');
         console.log('Review submitted:', result);
     } catch (error) {
         console.error('Error submitting review:', error);
     }
+}
+
+// Function to handle form submission
+async function handleReviewSubmission(event) {
+    event.preventDefault();
+    const movieId = document.getElementById('movieId').value;
+    const reviewContent = document.getElementById('reviewContent').value;
+    if (movieId && reviewContent) {
+        await submitUserReview(movieId, reviewContent);
+    } else {
+        alert('Please fill in all fields!');
+    }
+}
+
+// Add event listener for review form
+if (document.getElementById('reviewForm')) {
+    document.getElementById('reviewForm').addEventListener('submit', handleReviewSubmission);
 }
 
 // Fetch movies on page load
