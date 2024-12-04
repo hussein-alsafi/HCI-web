@@ -31,7 +31,7 @@ function displayMovies(movies) {
         
         const moreInfoButton = document.createElement('button');
         moreInfoButton.classList.add('movie-button');
-        moreInfoButton.textContent = 'Movie ID';
+        moreInfoButton.textContent = 'More Info';
         moreInfoButton.addEventListener('click', () => showMovieDetails(movie.id));
 
         movieCard.append(movieImage, movieTitle, movieDescription, moreInfoButton);
