@@ -46,14 +46,13 @@ async function submitMovieRating(movieId, rating) {
         method: 'POST',
         headers: {
             accept: 'application/json',
-            'Content-Type': 'application/json;charset=utf-8',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDgyYzRmMTI0NmFhNDg2NmMyOGFlYmUyODQ4NjIyOCIsIm5iZiI6MTczMzIzODA2MS4zOTgwMDAyLCJzdWIiOiI2NzRmMWQyZGFhNGMxZTI0MTNhMWY5YWMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.OA3UUO5y98poDAI5QxadtEL0VMgL8KOR6UgiMtjJBkQ'
+            'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({ value: rating })
     };
 
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/rating`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=${apiKey}`, options);
         const result = await response.json();
         if (response.ok) {
             alert('Rating submitted successfully!');
@@ -75,7 +74,6 @@ async function handleRatingSubmission(event) {
         alert('Please provide a valid movie ID and rating (between 0.5 and 10)!');
     }
 }
-
 
 if (document.getElementById('ratingForm')) {
     document.getElementById('ratingForm').addEventListener('submit', handleRatingSubmission);
