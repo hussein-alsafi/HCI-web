@@ -47,10 +47,9 @@
     
     <section class="screen">
         <h2 class="section-title">Submit a Movie Rating</h2>
-
-        <form id="ratingForm">
+        <form id="ratingForm" class="booking-form">
             <label for="movieId">Movie ID:</label>
-            <input type="text" id="movieId" name="movieId" required>
+            <input type="text" id="movieId" placeholder="Enter Movie ID" required>
             <label for="rating">Rating (0.5 - 10):</label>
             <input type="number" id="rating" name="rating" step="0.1" min="0.5" max="10" required>
             <button type="submit">Submit Rating</button>
