@@ -29,12 +29,15 @@ function displayMovies(movies) {
         const movieDescription = document.createElement('p');
         movieDescription.textContent = movie.overview;
 
+        const movieDescription = document.createElement('p');
+        movieID.textContent = movie.id;
+        
         const moreInfoButton = document.createElement('button');
         moreInfoButton.classList.add('movie-button');
         moreInfoButton.textContent = 'More Info';
         moreInfoButton.addEventListener('click', () => showMovieDetails(movie.id));
 
-        movieCard.append(movieImage, movieTitle, movieDescription, moreInfoButton);
+        movieCard.append(movieImage, movieTitle, movieDescription, movieID, moreInfoButton);
         movieGrid.appendChild(movieCard);
     });
 }
