@@ -27,62 +27,55 @@ function displayMovies(movies) {
         movieTitle.textContent = movie.title;
 
         const movieDescription = document.createElement('p');
-        movieDescription.textContent = movie.overview;
-        
+        movieDescription.textContent = `Rating: ${movie.vote_average}`;
+
         const moreInfoButton = document.createElement('button');
         moreInfoButton.classList.add('movie-button');
-        moreInfoButton.textContent = 'Movie id';
-        moreInfoButton.addEventListener('click', () => showMovieDetails(movie.id));
+        moreInfoButton.textContent = 'More Info';
+        moreInfoButton.addEventListener('click', () => {
+            alert(`Movie ID: ${movie.id}`);
+        });
 
         movieCard.append(movieImage, movieTitle, movieDescription, moreInfoButton);
         movieGrid.appendChild(movieCard);
     });
 }
 
-async function showMovieDetails(movieId) {
+async function submitMovieRating(movieId, rating) {
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`);
-        const movieDetails = await response.json();
-        alert(`Movie Details: ${movieDetails.title}\n${movieDetails.id}`);
-    } catch (error) {
-        console.error('Error fetching movie details:', error);
-    }
-}
-
-async function submitUserReview(movieId, reviewContent) {
-    try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}`, {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                author: 'User',
-                content: reviewContent,
+                value: rating,
             }),
         });
         const result = await response.json();
-        alert('Review submitted successfully!');
-        console.log('Review submitted:', result);
+        if (result.status_code === 1 || result.status_code === 12) {
+            alert('Rating submitted successfully!');
+        } else {
+            alert('Failed to submit rating!');
+        }
     } catch (error) {
-        console.error('Error submitting review:', error);
+        console.error('Error submitting rating:', error);
     }
 }
 
-async function handleReviewSubmission(event) {
+async function handleRatingSubmission(event) {
     event.preventDefault();
     const movieId = document.getElementById('movieId').value;
-    const reviewContent = document.getElementById('reviewContent').value;
-    if (movieId && reviewContent) {
-        await submitUserReview(movieId, reviewContent);
+    const rating = parseFloat(document.getElementById('rating').value);
+    if (movieId && rating >= 0.5 && rating <= 10) {
+        await submitMovieRating(movieId, rating);
     } else {
-        alert('Please fill in all fields!');
+        alert('Please provide a valid movie ID and rating (between 0.5 and 10)!');
     }
 }
 
-if (document.getElementById('reviewForm')) {
-    document.getElementById('reviewForm').addEventListener('submit', handleReviewSubmission);
+if (document.getElementById('ratingForm')) {
+    document.getElementById('ratingForm').addEventListener('submit', handleRatingSubmission);
 }
 
-// Fetch movies on page load
 window.addEventListener('DOMContentLoaded', fetchMovies);
