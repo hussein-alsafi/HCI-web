@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Review</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Cinema</div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="submit-review.html">Submit Review</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="screen">
+        <h2 class="section-title">Submit a Movie Review</h2>
+        <form id="reviewForm" class="booking-form">
+            <label for="movieId">Movie ID</label>
+            <input type="text" id="movieId" placeholder="Enter Movie ID" required>
+
+            <label for="reviewContent">Your Review</label>
+            <textarea id="reviewContent" rows="4" placeholder="Write your review here..." required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Cinema. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
