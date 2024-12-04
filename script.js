@@ -42,21 +42,23 @@ function displayMovies(movies) {
 }
 
 async function submitMovieRating(movieId, rating) {
+    const options = {
+        method: 'POST',
+        headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json;charset=utf-8',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDgyYzRmMTI0NmFhNDg2NmMyOGFlYmUyODQ4NjIyOCIsIm5iZiI6MTczMzIzODA2MS4zOTgwMDAyLCJzdWIiOiI2NzRmMWQyZGFhNGMxZTI0MTNhMWY5YWMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.OA3UUO5y98poDAI5QxadtEL0VMgL8KOR6UgiMtjJBkQ'
+        },
+        body: JSON.stringify({ value: rating })
+    };
+
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=${apiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                value: rating,
-            }),
-        });
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/rating`, options);
         const result = await response.json();
-        if (result.status_code === 1 || result.status_code === 12) {
+        if (response.ok) {
             alert('Rating submitted successfully!');
         } else {
-            alert('Failed to submit rating!');
+            alert(`Failed to submit rating: ${result.status_message}`);
         }
     } catch (error) {
         console.error('Error submitting rating:', error);
@@ -73,6 +75,7 @@ async function handleRatingSubmission(event) {
         alert('Please provide a valid movie ID and rating (between 0.5 and 10)!');
     }
 }
+
 
 if (document.getElementById('ratingForm')) {
     document.getElementById('ratingForm').addEventListener('submit', handleRatingSubmission);
