@@ -31,7 +31,7 @@ function displayMovies(movies) {
         
         const moreInfoButton = document.createElement('button');
         moreInfoButton.classList.add('movie-button');
-        moreInfoButton.textContent = 'More Info';
+        moreInfoButton.textContent = 'Movie id';
         moreInfoButton.addEventListener('click', () => showMovieDetails(movie.id));
 
         movieCard.append(movieImage, movieTitle, movieDescription, moreInfoButton);
@@ -43,7 +43,7 @@ async function showMovieDetails(movieId) {
     try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`);
         const movieDetails = await response.json();
-        alert(`Movie Details: ${movieDetails.title}\n${movieDetails.overview}`);
+        alert(`Movie Details: ${movieDetails.title}\n${movieDetails.id}`);
     } catch (error) {
         console.error('Error fetching movie details:', error);
     }
